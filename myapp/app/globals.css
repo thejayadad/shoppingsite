@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body{
+  overflow-x: hidden;
+}
+
+body{
+  overflow-x: hidden;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+@layer base{
+  button{
+    @apply px-3 py-2 border bg-transparent 
+  }
+}
+h1{
+  font-size: 80px;
+}
+h2{
+  font-size: 56px;
+}
+h3{
+  font-size: 32px;
+}
+h4{
+  font-size: 24px;
+}
+h5{
+  font-size: 20px;
+}
+h6{
+  font-size: 16px;
+}

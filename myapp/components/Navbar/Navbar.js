@@ -1,21 +1,25 @@
+'use client'
 import Link from 'next/link'
 import React from 'react'
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/lib/auth'
+import { getProviders, signIn, useSession } from "next-auth/react";
 
-const Navbar = async () => {
-    const session = await getServerSession(authOptions)
+
+const Navbar = () => {
+    const session = useSession();
+
   return (
-    <header className='px4 py-12'>
-        <div className='flex justify-between max-w-xl mx-auto'>
-            <Link href={'/'}>WalletWorld</Link>
-            <nav className='flex gap-6'>
-            {session ? (
-            <Link href="/api/auth/signout?callbackUrl=/">Logout</Link>
-          ) : (
-            <Link href="/api/auth/signin">Login</Link>
-          )}
-            </nav>
+    <header className='px-4 py-12'>
+        <div className='flex justify-between mx-auto max-screen-w-xl'>
+            <Link href={'/'}>LOGO</Link>
+            <div className='flex gap-4'>
+            <button
+        onClick={() => {
+          signIn("google");
+        }}
+        >
+        Login with Google
+      </button>
+            </div>
         </div>
     </header>
   )

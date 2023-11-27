@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 const StorePage = (ctx) => {
   const [storeDetails, setStoreDetails] = useState("");
   const [products, setProducts] = useState([]);
+  const [isProductFormOpen, setIsProductFormOpen] = useState(false);
 
   useEffect(() => {
     const fetchStore = async () => {
@@ -17,6 +18,14 @@ const StorePage = (ctx) => {
     fetchStore();
   }, [ctx.params.id]);
 
+  const openProductForm = () => {
+    setIsProductFormOpen(true);
+  };
+
+  const closeProductForm = () => {
+    setIsProductFormOpen(false);
+  };
+
   return (
     <section>
       <div className='flex max-w-screen-xl mx-auto gap-6'>
@@ -24,14 +33,36 @@ const StorePage = (ctx) => {
         {products.length < 1 ? (
           <h3>No Products</h3>
         ) : (
-          products.map((product) => (
-            <p key={product._id}>{product.name}</p>
-          ))
+          <table className='min-w-full divide-y divide-gray-200'>
+            <thead className='bg-gray-50'>
+              <tr>
+                <th scope='col' className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+                  Product Name
+                </th>
+                <th scope='col' className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+                  Product Price
+                </th>
+              </tr>
+            </thead>
+            <tbody className='bg-white divide-y divide-gray-200'>
+              {products.map((product) => (
+                <tr key={product._id}>
+                  <td className='px-6 py-4 whitespace-nowrap'>{product.name}</td>
+                  <td className='px-6 py-4 whitespace-nowrap'>{product.price}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         )}
       </div>
-      <ProductForm storeId={ctx.params.id} />
+      <button onClick={openProductForm} className='bg-purple-500 text-white p-2 rounded mt-4'>
+        Add Product
+      </button>
+      {isProductFormOpen && (
+        <ProductForm storeId={ctx.params.id} onClose={closeProductForm} />
+      )}
     </section>
   );
-}
+};
 
 export default StorePage;

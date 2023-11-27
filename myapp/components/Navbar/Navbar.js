@@ -17,9 +17,9 @@ const Navbar = () => {
               ? (
                 <div>
                   { (
-                        <div>
+                        <div className='flex gap-6'>
+                      <Link href={'/admin'}>Admin</Link>
                       <button onClick={() => {signOut()}}>Logout</button>
-                      <Link href={'/'}>Create</Link>
                     </div>
                   )}
                 </div>

@@ -1,11 +1,11 @@
 'use client'
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
-const Admin = () => {
+const Admin = (ctx) => {
   const [stores, setStores] = useState([]);
 
   useEffect(() => {
-    // Fetch store names when the component mounts
     fetchStoreNames();
   }, []);
 
@@ -29,7 +29,9 @@ const Admin = () => {
       <div>
         {stores.map((store) => (
           <div key={store._id}>
-            <span>StoreName: {store.name}</span>
+            <Link
+            href={`/admin/store/${store._id}`}
+            >StoreName: {store.name}</Link>
           </div>
         ))}
       </div>

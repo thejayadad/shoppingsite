@@ -4,8 +4,16 @@ const StoreSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
-        unique: true
-    },
-   }, {timestamps: true})
+      },
+      billboards: [
+        {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'Billboard',
+        },
+      ],
+    }, {
+      timestamps: true,
+
+    })
 
 export default mongoose?.models?.Store || mongoose.model("Store", StoreSchema)

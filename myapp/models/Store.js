@@ -6,6 +6,10 @@ const StoreSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    products: {
+      type: String,
+      default: []
+  },
    }, {timestamps: true})
 
 export default mongoose?.models?.Store || mongoose.model("Store", StoreSchema)

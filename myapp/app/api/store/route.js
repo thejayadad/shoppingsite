@@ -1,5 +1,5 @@
-import Store from "@/models/Store";
 import db from "@/lib/db";
+import Store from "@/models/Store";
 
 export async function GET(req) {
     await db.connect();

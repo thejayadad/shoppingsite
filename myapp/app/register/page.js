@@ -58,10 +58,9 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <div className='max-w-screen-xl mx-auto'>
       <h2 className="text-3xl mb-4">Register</h2>
       <form onSubmit={handleSubmit} className="mb-4">
-        {/* Your registration form fields go here */}
         <input
           type="text"
           placeholder="Username"

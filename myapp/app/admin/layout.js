@@ -1,5 +1,6 @@
 'use client'
 import Aside from '@/components/admin/Aside/Aside'
+import AdminNav from '@/components/admin/Navbar/AdminNav'
 import {signIn, signOut, useSession} from 'next-auth/react'
 
 
@@ -17,7 +18,8 @@ export default function DashboardLayout({ children }) {
                 {session.user.email}
             <Aside />
             </span>
-        <sppan className="col-span-6 min-h-screen">        
+        <sppan className="col-span-6 min-h-screen"> 
+        <AdminNav />       
             {children}
     </sppan>
 

@@ -41,7 +41,7 @@ const Aside = () => {
         setTimeout(() => {
           closeModal();
           setLoading(false);
-          router.push('/admin'); // Redirect to /admin after successful creation
+          router.push('/admin'); 
         }, 1500);
       } else {
         toast.error('Error occurred while creating the store');

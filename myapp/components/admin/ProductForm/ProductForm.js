@@ -1,5 +1,7 @@
 'use client'
 import React, { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ProductForm = ({ storeId, onClose }) => {
   const [productName, setProductName] = useState('');
@@ -24,15 +26,19 @@ const ProductForm = ({ storeId, onClose }) => {
       if (response.ok) {
         const newProduct = await response.json();
         console.log('New Product:', newProduct);
-        onClose(); 
+        toast('Product created successfully', { appearance: 'success', autoDismiss: true });
+        onClose();
+        window.location.reload();
+        router.push('/admin');
       } else {
         console.error('Error creating product:', response.status);
+        addToast('Failed to create product', { appearance: 'error', autoDismiss: true });
       }
     } catch (error) {
       console.error('Error creating product:', error);
+      toast('Failed to create product', { appearance: 'error', autoDismiss: true });
     }
   };
-
   return (
     <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50'>
       <div className='bg-white p-6 rounded shadow-lg'>
@@ -70,6 +76,8 @@ const ProductForm = ({ storeId, onClose }) => {
           </button>
         </form>
       </div>
+      <ToastContainer />
+
     </div>
   );
 };

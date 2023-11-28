@@ -25,7 +25,7 @@ const Stats = () => {
   return (
     <section>
       {stats ? (
-        <div className='flex justify-between flex-wrap gap-6 font-medium text-gray-500 uppercase tracking-wider'>
+        <div className='flex justify-between gap-6 font-medium text-gray-500 uppercase tracking-wider'>
           <div
           className='font-medium text-orange-500 uppercase tracking-wider border border-orange-500  px-16 py-4 mt-8 hover:bg-orange-500 hover:text-white'
           >User: {stats.userCount}</div>

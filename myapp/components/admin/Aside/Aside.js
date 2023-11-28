@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Link from 'next/link';
 
 const Aside = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -54,8 +55,10 @@ const Aside = () => {
   };
 
   return (
-    <aside className='px-6 py-4'>
-      <button onClick={openModal} className='bg-blue-500 text-white p-2 rounded'>
+    <aside className='px-6 py-4 flex items-center gap-4 md:flex md:flex-col'>
+      <button onClick={openModal} 
+          className='font-medium text-blue-500 uppercase tracking-wider border border-blue-500 rounded- xl px-8  py-2 mt-8 hover:bg-blue-500 hover:text-white'
+          >
         Create Store
       </button>
 
@@ -70,7 +73,9 @@ const Aside = () => {
               onChange={(e) => setStoreName(e.target.value)}
               className='w-full p-2 mb-4 border border-gray-300 rounded'
             />
-            <button onClick={handleCreateStore} className='bg-blue-500 text-white p-2 rounded'>
+            <button onClick={handleCreateStore}
+          className='font-medium text-blue-500 uppercase tracking-wider border border-blue-500  px-8  py-2 mt-8 hover:bg-blue-500 hover:text-white'
+          >
               {loading ? 'Creating...' : 'Create'}
             </button>
             <button onClick={closeModal} className='bg-gray-300 text-black p-2 rounded ml-2'>
@@ -79,6 +84,11 @@ const Aside = () => {
           </div>
         </div>
       )}
+      <div>
+        <Link
+          className='font-medium text-orange-500 uppercase tracking-wider border border-orange-500 px-8  py-2 mt-8 hover:bg-orange-500 hover:text-white'
+          href={'/admin/products'}>All Products</Link>
+      </div>
       <ToastContainer />
     </aside>
   );

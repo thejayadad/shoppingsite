@@ -30,7 +30,7 @@ const Admin = () => {
       <Stats />
       <div className='mt-6'>
         <table className='min-w-full divide-y divide-gray-200'>
-          <thead className='bg-gray-50'>
+          <thead className='bg-transparent'>
             <tr>
               <th scope='col' className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
                 Store Name
@@ -40,7 +40,7 @@ const Admin = () => {
               </th>
             </tr>
           </thead>
-          <tbody className='bg-white divide-y divide-gray-200'>
+          <tbody className='bg-transparent divide-y divide-gray-200'>
             {stores.map((store) => (
               <tr key={store._id}>
                 <td className='px-6 py-4 whitespace-nowrap'>
@@ -50,8 +50,8 @@ const Admin = () => {
                 </td>
                 <td className='px-6 py-4 whitespace-nowrap'>
                   <Link
-                  className='px-8 py-4 bg-red-400 '
-                  href={`/admin/store/${store._id}`}>Update</Link>
+                className='font-medium text-blue-500 uppercase tracking-wider border border-blue-500 rounded- xl px-8  py-2 mt-8 hover:bg-blue-500 hover:text-white'
+                href={`/admin/store/${store._id}`}>Details</Link>
                 </td>
               </tr>
             ))}

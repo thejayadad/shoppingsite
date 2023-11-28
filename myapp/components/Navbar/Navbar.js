@@ -18,8 +18,12 @@ const Navbar = () => {
                 <div>
                   { (
                         <div className='flex gap-6'>
-                      <Link href={'/admin'}>Admin</Link>
-                      <button onClick={() => {signOut()}}>Logout</button>
+                      <Link
+                      className='px-3 py-2 border bg-transparent font-medium text-orange-500  border-orange-500 uppercase tracking-wider hover:bg-orange-500 hover:text-white'
+                      href={'/admin'}>Admin</Link>
+                      <button 
+                      className='font-medium text-gray-500 uppercase tracking-wider hover:bg-gray-500 hover:text-white'
+                      onClick={() => {signOut()}}>Logout</button>
                     </div>
                   )}
                 </div>

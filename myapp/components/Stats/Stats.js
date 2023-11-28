@@ -25,15 +25,15 @@ const Stats = () => {
   return (
     <section>
       {stats ? (
-        <div className='flex justify-between flex-wrap gap-6'>
+        <div className='flex justify-between flex-wrap gap-6 font-medium text-gray-500 uppercase tracking-wider'>
           <div
-          className='bg-orange-300 rounded-2xl px-16 py-4 mt-8'
+          className='font-medium text-orange-500 uppercase tracking-wider border border-orange-500  px-16 py-4 mt-8 hover:bg-orange-500 hover:text-white'
           >User: {stats.userCount}</div>
           <div
-          className='bg-purple-300 rounded-2xl px-16 py-4 mt-8'
+          className='font-medium text-purple-500 uppercase tracking-wider border border-purple-500 px-16 py-4 mt-8 hover:bg-purple-500 hover:text-white'
           >Store: {stats.storeCount}</div>
           <div
-          className='bg-green-300 rounded-2xl px-16 py-4 mt-8'
+          className='font-medium text-blue-500 uppercase tracking-wider border border-blue-500 px-16 py-4 mt-8 hover:bg-blue-500 hover:text-white'
          
           >Product: {stats.productCount}</div>
         </div>

@@ -28,13 +28,20 @@ const StorePage = (ctx) => {
 
   return (
     <section>
-      <div className='flex max-w-screen-xl mx-auto gap-6'>
-        <span>{storeDetails.name}</span>
+      <div className='flex flex-col max-w-screen-xl mx-auto gap-6'>
+        <span className='text-center text-2xl font-medium text-gray-500 uppercase tracking-wider mt-8 mb-8'>{storeDetails.name}</span>
+        <button
+        onClick={openProductForm} className='border-purple-500 font-medium text-gray-500 uppercase tracking-wider p-2 rounded mt-4 max-w-xs mx-auto'>
+        Add Product
+      </button>
+      {isProductFormOpen && (
+        <ProductForm storeId={ctx.params.id} onClose={closeProductForm} />
+      )}
         {products.length < 1 ? (
           <h3>No Products</h3>
         ) : (
           <table className='min-w-full divide-y divide-gray-200'>
-            <thead className='bg-gray-50'>
+            <thead className='bg-transparent'>
               <tr>
                 <th scope='col' className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
                   Product Name
@@ -44,7 +51,7 @@ const StorePage = (ctx) => {
                 </th>
               </tr>
             </thead>
-            <tbody className='bg-white divide-y divide-gray-200'>
+            <tbody className='bg-transparent text-gray-500 divide-y divide-gray-200'>
               {products.map((product) => (
                 <tr key={product._id}>
                   <td className='px-6 py-4 whitespace-nowrap'>{product.name}</td>
@@ -55,12 +62,7 @@ const StorePage = (ctx) => {
           </table>
         )}
       </div>
-      <button onClick={openProductForm} className='bg-purple-500 text-white p-2 rounded mt-4'>
-        Add Product
-      </button>
-      {isProductFormOpen && (
-        <ProductForm storeId={ctx.params.id} onClose={closeProductForm} />
-      )}
+
     </section>
   );
 };

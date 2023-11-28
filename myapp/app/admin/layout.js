@@ -15,7 +15,9 @@ export default function DashboardLayout({ children }) {
     return <section>
     <section className="grid grid-cols-1 lg:grid-cols-8 gap-4 p-4 max-w-screen-xl mx-auto">
             <div className="col-span-1 md:col-span-2">
-                {session.user.email}
+                <span className='text-purple-400'>
+                Welcome: {session.user.email}
+                </span>
             <Aside />
             </div>
         <div className="col-span-6 min-h-screen"> 

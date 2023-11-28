@@ -14,14 +14,14 @@ export default function DashboardLayout({ children }) {
 
     return <section>
     <section className="grid grid-cols-1 lg:grid-cols-8 gap-4 p-4 max-w-screen-xl mx-auto">
-            <span className=" col-span-1 md:col-span-2">
+            <div className="col-span-1 md:col-span-2">
                 {session.user.email}
             <Aside />
-            </span>
-        <sppan className="col-span-6 min-h-screen"> 
+            </div>
+        <div className="col-span-6 min-h-screen"> 
         <AdminNav />       
             {children}
-    </sppan>
+    </div>
 
     </section>
     </section>

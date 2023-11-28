@@ -24,7 +24,7 @@ const ProductForm = ({ storeId, onClose }) => {
       if (response.ok) {
         const newProduct = await response.json();
         console.log('New Product:', newProduct);
-        onClose(); // Close the modal after submitting the form
+        onClose(); 
       } else {
         console.error('Error creating product:', response.status);
       }

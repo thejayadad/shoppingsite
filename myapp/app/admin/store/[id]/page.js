@@ -3,6 +3,7 @@ import ProductForm from '@/components/admin/ProductForm/ProductForm';
 import UpdateForm from '@/components/admin/UpdateForm/UpdateForm';
 import React, { useEffect, useState } from 'react';
 import { AiFillDelete, AiOutlineEdit } from 'react-icons/ai';
+import { useRouter } from 'next/navigation';
 
 
 const StorePage = (ctx) => {
@@ -57,7 +58,6 @@ const StorePage = (ctx) => {
   const handleModalClose = () => {
     setIsUpdateModalOpen(false);
     setIsCreateModalOpen(false);
-    fetchProducts();
   };
 
   return (

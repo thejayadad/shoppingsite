@@ -1,12 +1,15 @@
 'use client'
 import React from 'react';
 import { useRouter } from 'next/navigation';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const UpdateForm = ({ product, onClose }) => {
   const [productName, setProductName] = React.useState(product.name);
   const [productPrice, setProductPrice] = React.useState(product.price);
   const router = useRouter();
+
 
 
   const handleSubmit = async (e) => {
@@ -25,13 +28,16 @@ const UpdateForm = ({ product, onClose }) => {
       });
 
       if (response.ok) {
+        toast('Product updated successfully', { appearance: 'success', autoDismiss: true });
         onClose();
-        window.location.reload();
+        router.push('/admin');
       } else {
         console.error('Error updating product:', response.status);
+        toast('Failed to update product', { appearance: 'error', autoDismiss: true });
       }
     } catch (error) {
       console.error('Error updating product:', error);
+      toast('Failed to update product', { appearance: 'error', autoDismiss: true });
     }
   };
 
@@ -84,6 +90,8 @@ const UpdateForm = ({ product, onClose }) => {
             </form>
           </div>
         </div>
+        <ToastContainer />
+
       </div>
     </div>
   );
